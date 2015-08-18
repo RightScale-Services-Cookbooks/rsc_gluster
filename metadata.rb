@@ -6,7 +6,9 @@ description      'Installs/Configures rsc_gluster'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 
-depends "rightscale"
+depends "marker"
+depends "machine_tag"
+depends "gluster"
 
 recipe "rsc_gluster::default", "verifies settings from gluster recipes"
 recipe "rsc_gluster::server", "installs gluster server"
