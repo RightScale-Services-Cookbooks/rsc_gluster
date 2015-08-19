@@ -2,17 +2,12 @@ marker "recipe_start_rightscale" do
   template "rightscale_audit_entry.erb"
 end
 
-<<<<<<< HEAD
-require 'mixlib/shellout'
-
-=======
->>>>>>> cd6c95d0b4da5da30a7fb87f23eb6ddf47264394
 class Chef::Recipe
   include Chef::MachineTagHelper
 end
 
 include_recipe "machine_tag::default"
-tags = tag_list(node)
+
 glusterfs_peers = []
 tags_results = tag_search(node, "gluster:server=true").first
 Chef::Log.info "tags:" + tags_results.inspect
