@@ -2,7 +2,7 @@ marker "recipe_start_rightscale" do
   template "rightscale_audit_entry.erb"
 end
 
-class Chef::Resource::RubyBlock
+class Chef::Recipe
   include Chef::MachineTagHelper
 end
 
