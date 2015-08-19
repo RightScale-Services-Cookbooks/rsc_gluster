@@ -18,4 +18,9 @@ r=ruby_block "find server ip" do
 end
 r.run_action(:create)
 
+
 node.set['gluster']['peers'] = glusterfs_peers
+
+Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
+
+include_recipe "gluster::server-peer-probe"
