@@ -2,8 +2,11 @@ marker "recipe_start_rightscale" do
   template "rightscale_audit_entry.erb"
 end
 
+<<<<<<< HEAD
 require 'mixlib/shellout'
 
+=======
+>>>>>>> cd6c95d0b4da5da30a7fb87f23eb6ddf47264394
 class Chef::Recipe
   include Chef::MachineTagHelper
 end
