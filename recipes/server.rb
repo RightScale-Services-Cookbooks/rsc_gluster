@@ -1,9 +1,5 @@
-rightscale_marker :begin
-
-include_recipe "gluster::server"
-
-right_link_tag "gluster:server=true" do
-  action :publish
+marker "recipe_start_rightscale" do
+  template "rightscale_audit_entry.erb"
 end
 
-rightscale_marker :end
+include_recipe "gluster::server"
