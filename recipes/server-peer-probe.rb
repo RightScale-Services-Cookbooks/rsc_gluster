@@ -25,4 +25,4 @@ node.override['gluster']['peers'] = glusterfs_peers
 
 Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
-#include_recipe "gluster::server-peer-probe"
+include_recipe "gluster::server-peer-probe"
