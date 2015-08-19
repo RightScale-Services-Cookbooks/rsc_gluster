@@ -9,7 +9,7 @@ end
 include_recipe "machine_tag::default"
 
 glusterfs_peers = []
-tags_results = tag_search(node, "gluster:server=true").first
+tags_results = tag_search(node, "gluster:server=true")
 Chef::Log.info "tags:" + tags_results.inspect
 
 tags_results.each do |itemlist|
