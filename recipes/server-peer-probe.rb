@@ -21,7 +21,7 @@ r.run_action(:create)
 
 Chef::Log.info "found peers #{glusterfs_peers}"
 
-node.override['gluster']['peers'] = glusterfs_peers
+node.override['gluster']['peers'] = #{glusterfs_peers}
 
 Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
