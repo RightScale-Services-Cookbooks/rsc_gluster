@@ -13,13 +13,14 @@ r=ruby_block "find server ip" do
   block do
     tags = tag_search(node, "gluster:server=true").first
     Chef::Log.info "tags: #{tags.inspect}"
-    glusterfs_ip =  tags["server:private_ip_0"].first.value
+    glusterfs_peers =  tags["server:private_ip_0"].first.value
   end
 end
 r.run_action(:create)
 
+Chef::Log.info "found peers #{glusterfs_peers}"
 
-node.set['gluster']['peers'] = glusterfs_peers
+node.override['gluster']['peers'] = glusterfs_peers
 
 Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
