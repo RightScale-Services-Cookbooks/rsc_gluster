@@ -11,7 +11,7 @@ include_recipe "machine_tag::default"
 glusterfs_peers = Array.new
 r=ruby_block "find server ip" do
   block do
-    tags = tag_search(node, "").first
+    tags = tag_search(node, "gluster:server=true").first
     Chef::Log.info "tags: #{tags.inspect}"
     glusterfs_ip =  tags["server:private_ip_0"].first.value
   end
