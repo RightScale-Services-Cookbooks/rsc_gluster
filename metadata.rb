@@ -9,6 +9,7 @@ version          '0.1.0'
 depends "marker"
 depends "machine_tag"
 depends "gluster"
+depends "rightscale_tag"
 
 recipe "rsc_gluster::default", "verifies settings from gluster recipes"
 recipe "rsc_gluster::server", "installs gluster server"
