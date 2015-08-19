@@ -3,3 +3,7 @@ marker "recipe_start_rightscale" do
 end
 
 include_recipe "gluster::server"
+
+machine_tag "gluster:server=true" do
+  action :create
+end
