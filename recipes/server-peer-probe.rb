@@ -12,13 +12,10 @@ glusterfs_peers = []
 tags_results = tag_search(node, "gluster:server=true").first
 Chef::Log.info "tags:" + tags.inspect
 
-#tags_results.each do |itemlist|
-#  block do
-#    glusterfs_peers << itemlist["server:private_ip_0"].first.split('=').last
-#    Chef::Log.info " Here are the ips addresses that we got from ruby block of gluster peer " + itemlist["server:private_ip_0"].first.split('=').last
-#  end
-#end
-
+tags_results.each do |itemlist|
+    glusterfs_peers << itemlist["server:private_ip_0"].first.split('=').last
+    Chef::Log.info " Here are the ips addresses that we got from ruby block of gluster peer " + itemlist["server:private_ip_0"].first.split('=').last
+end
 
 #Chef::Log.info "found peers #{glusterfs_peers}"
 
