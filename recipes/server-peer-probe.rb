@@ -13,7 +13,8 @@ r=ruby_block "find server ip" do
   block do
     tags = tag_search(node, "gluster:server=true").first
     Chef::Log.info "tags: #{tags.inspect}"
-    glusterfs_peers << tags["server:private_ip_0"].first.split('=').last.to_s
+    glusterfs_peers << tags["server:private_ip_0"].first.split('=').last
+    Chef::Log.info " Here are the ips addresses that we got from ruby block of gluster peer " + tags["server:private_ip_0"].first.split('=').last
   end
 end
 r.run_action(:create)
