@@ -1,4 +1,4 @@
 site :opscode
 
 metadata
-cookbook 'gluster', git: 'https://github.com/RightScale-Services-Cookbooks/gluster.git'
+cookbook 'gluster', git: 'git://github.com/RightScale-Services-Cookbooks/gluster.git'
