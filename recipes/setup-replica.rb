@@ -28,3 +28,16 @@ Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
 
 include_recipe 'gluster::setup-replica'
+
+directory "/mnt/gluster" do
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+
+mount "/mnt/gluster" do
+  device "#{node['cloud']['private_ips'][0]}:/#{node['gluster']['volume']['name']}"
+  fstype "glusterfs"
+  action [:mount, :enable]
+end
