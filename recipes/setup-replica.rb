@@ -34,7 +34,7 @@ rsc_remote_recipe "attach local client" do
   recipient_tags "gluster:server=true"
   attributes( {
   'gluster/client/mount/point' => '/mnt/gluster',
-  'gluster/peers' => node['gluster']['peers']
+  'gluster/peers' => glusterfs_peers
 } )
   action :run
 end
