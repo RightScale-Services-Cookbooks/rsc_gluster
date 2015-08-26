@@ -32,8 +32,9 @@ include_recipe 'gluster::setup-replica'
 rsc_remote_recipe "attach local client" do
   recipe "gluster::client"
   recipient_tags "gluster:server=true",
-  attributes { 'gluster/client/mount/point' => '/mnt/gluster',
-    'gluster/peers' => node['gluster']['peers']
-  }
+  attributes( {
+  'gluster/client/mount/point' => '/mnt/gluster',
+  'gluster/peers' => node['gluster']['peers']
+} )
   action :run
 end
