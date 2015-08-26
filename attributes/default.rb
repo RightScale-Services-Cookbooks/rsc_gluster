@@ -1,1 +1,1 @@
-default['gluster']['brick']['path']="/mnt/ephemeral"
+default['gluster']['brick']['path'] = '/mnt/ephemeral'
