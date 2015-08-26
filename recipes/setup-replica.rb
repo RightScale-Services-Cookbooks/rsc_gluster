@@ -29,15 +29,12 @@ node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
 
 include_recipe 'gluster::setup-replica'
 
-directory "/mnt/gluster" do
-  owner "root"
-  group "root"
-  mode 0755
-  action :create
-end
-
-mount "/mnt/gluster" do
-  device "#{node['cloud']['private_ips'][0]}:/#{node['gluster']['volume']['name']}"
-  fstype "glusterfs"
-  action [:mount, :enable]
+rsc_remote_recipe "attach local client" do
+  recipe "gluster::client"
+  recipient_tags "gluster:server=true",
+  attributes {
+    'gluster/client/mount/point' => '/mnt/gluster',
+    'gluster/peers' => node['gluster']['peers']
+  }
+  action :run
 end
