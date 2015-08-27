@@ -27,14 +27,4 @@ Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
 node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
 
-include_recipe 'gluster::setup-replica'
-
-rsc_remote_recipe "attach local client" do
-  recipe "rsc_gluster::client"
-  recipient_tags "gluster:server=true"
-  attributes( {
-  'gluster/client/mount/point' => '/mnt/gluster',
-  'gluster/peers' => glusterfs_peers
-} )
-  action :run
-end
+include_recipe 'gluster::client"

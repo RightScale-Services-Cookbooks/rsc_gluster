@@ -16,6 +16,7 @@ recipe 'rsc_gluster::default', 'verifies settings from gluster recipes'
 recipe 'rsc_gluster::server', 'installs gluster server'
 recipe 'rsc_gluster::server-peer-probe', 'gets peers from tag service'
 recipe 'rsc_gluster::setup-replica', 'creates replica set'
+recipe 'rsc_gluster::client', 'sets up gluster client from tags'
 
 attribute 'rsc_gluster/brick/path',
   :display_name => 'Gluster Brick Path',
