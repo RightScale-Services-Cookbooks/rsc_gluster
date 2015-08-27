@@ -27,4 +27,4 @@ Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
 node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
 
-include_recipe 'gluster::client"
+include_recipe 'gluster::client'
