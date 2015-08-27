@@ -1,6 +1,6 @@
 ruby_block "config attributes" do
   block do
-    EXPORT_DIR=node['gluster']['brick']['path']
+    EXPORT_DIR=node['rsc_gluster']['brick']['path']
     require 'mixlib/shellout'
     Chef::Log.info "doing attribute set"
     attr1=Mixlib::ShellOut.new("setfattr -x trusted.glusterfs.volume-id #{EXPORT_DIR}").run_command
