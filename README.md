@@ -46,7 +46,6 @@ rsc_tomcat::collectd - setup monitoring using collectd
 
 # Author
 Author:: RightScale, Inc. (<ps@rightscale.com>)
-* Steps to run
 ** rsc_gluster::server-peer-probe
 ** rsc_gluster::volume - Wait to complete
 ** rsc_gluster::setup-replica
