@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'berkshelf', '~> 3.2.4'
+gem 'berkshelf-api-client', '~> 1.3.0'
+gem 'faraday', '~> 0.9.0'
 gem 'thor-foodcritic'
 
 group :integration do
