@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf', '~> 4'
+gem 'berkshelf', '~> 2'
 gem 'thor-foodcritic'
 
 group :integration do
