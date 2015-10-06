@@ -12,4 +12,5 @@ group :integration do
   gem 'travis-lint'
   gem 'foodcritic', '~> 4.0.0'
   gem 'rspec-expectations', '~> 3.0.0'
+  gem 'faraday', '~> 0.9.0'
 end
