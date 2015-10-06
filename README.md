@@ -17,35 +17,16 @@ the application_java and tomcat cookbooks below have been updated to support tom
 * rs-storage from git://github.com/rightscale-cookbooks/rs-storage.git
 
 # Attributes
-* `node['rsc_tomcat']['listen_port']` - 'The port to use for the application to bind. Example: 8080'
-* `node['rsc_tomcat']['war']['path']` - 'URL of WAR file '
-* `node['rsc_tomcat']['application_name']` - 'The name of the application.'
-* `node['rsc_tomcat']['app_root']` - 'Application Root'
-* `node['rsc_tomcat']['vhost_path']` - 'Virtual Host Name/Path'
-* `node['rsc_tomcat']['bind_network_interface']` - 'Application Bind Network Interface'
-* `node['rsc_tomcat']['database']['host']` - 'Database Host'
-* `node['rsc_tomcat']['database']['user']` - 'MySQL Application Username'
-* `node['rsc_tomcat']['database']['password']` - 'MySQL Application Password'
-* `node['rsc_tomcat']['database']['schema']` - 'MySQL Database Name'
-* `node['rsc_tomcat']['java']['version']` - 'JAVA JDK version to install'
-* `node['rsc_tomcat']['java']['flavor']` - 'JVM Flavor to install '
-* `node['rsc_tomcat']['java']['options']` - 'Tomcat JAVA Options'
-* `node['tomcat']['base_version']` - Tomcat Version
-* `node['tomcat']['catalina_options']` - 'Tomcat Catalina Options'
-* `node['tomcat']['install_method']` -  'method used to install tomcat. '
-* `node['tomcat']['tar_version']` - 'Tomcat Tar Version'
-
+* `node['rsc_gluster']['brick']['path']` - 'The path for gluster to share out'
 
 # Recipes
-rsc_tomcat::default - installs and configures apache with your tomcat app
-rsc_tomcat::tags - Adds the RightScale Tags to the Instance for the load balancer to find
-and attach
-rsc_tomcat::application_backend - Attaches to the load balancer
-rsc_tomcat::applicaton_backend_detach - Detaches to the load balancer
-rsc_tomcat::collectd - setup monitoring using collectd
+* rsc_gluster::default - needed for both client and server, sets up repos, etc.
+* rsc_gluster::client - uses rightscale_tag to setup gluster client.
+* rsc_gluster::server - sets up gluster::server and machine_tag(`gluster:server=true`)
+* rsc_gluster::server-peer-probe - searches for tags and `peer probe`'s additional hosts
+* rsc_gluster::volume - calls rs-storage::volume on all servers tagged with `gluster:server=true`
+* rsc_gluster::setup-replica - creates a replica-set across all servers tagged with `gluster:server=true`
+* rsc_gluster::fix-restored-party-attr - clears restored volume attributes that have been restored by `rsc_gluster::volume`
 
 # Author
 Author:: RightScale, Inc. (<ps@rightscale.com>)
-** rsc_gluster::server-peer-probe
-** rsc_gluster::volume - Wait to complete
-** rsc_gluster::setup-replica
