@@ -27,5 +27,17 @@ cookbook for details on providers and additional attributes for overrides.
 * rsc_gluster::setup-replica - creates a replica-set across all servers tagged with `gluster:server=true`
 * rsc_gluster::fix-restored-party-attr - clears restored volume attributes that have been restored by `rsc_gluster::volume`
 
+# Client Runlist
+* rsc_gluster::default
+* rsc_gluster::client
+
+# Server Runlist - `wait for each to finish`
+* rsc_gluster::default
+* rsc_gluster::server
+* rsc_gluster::server-peer-probe
+* rsc_gluster::volume
+* rsc_gluster::setup-replica
+
+
 # Author
 Author:: RightScale, Inc. (<ps@rightscale.com>)
