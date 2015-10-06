@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf', '~> 3.2.4'
-gem 'berkshelf-api-client', '~> 1.3.0'
-gem 'faraday', '~> 0.9.0'
+gem 'berkshelf', '~> 4'
 gem 'thor-foodcritic'
 
 group :integration do
@@ -14,5 +12,4 @@ group :integration do
   gem 'travis-lint'
   gem 'foodcritic', '~> 4.0.0'
   gem 'rspec-expectations', '~> 3.0.0'
-  gem 'faraday', '~> 0.9.0'
 end
