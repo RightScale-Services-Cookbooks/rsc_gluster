@@ -8,7 +8,6 @@ cookbook for details on providers and additional attributes for overrides.
 * Centos 6.7
 
 # Cookbooks
-the application_java and tomcat cookbooks below have been updated to support tomcat7.
 * gluster from git://github.com/RightScale-Services-Cookbooks/gluster.git
 * rsc_remote_recipe from git://github.com/RightScale-Services-Cookbooks/rsc_remote_recipe.git
 * marker from git://github.com/rightscale-cookbooks/marker.git
