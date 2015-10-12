@@ -35,7 +35,7 @@ cookbook for details on providers and additional attributes for overrides.
 * rsc_gluster::default
 * rsc_gluster::server
 * rsc_gluster::server-peer-probe
-* rsc_gluster::volume
+* rsc_gluster::volume - documentation for settings: https://github.com/RightScale-Services-Cookbooks/rs-storage/blob/master/README.md
 * rsc_gluster::setup-replica
 
 
