@@ -9,9 +9,9 @@ version          '0.1.0'
 depends 'marker', '~> 1.0.1'
 depends 'machine_tag', '~> 1.1.0'
 depends 'ephemeral_lvm', '~> 1.0.12'
-depends 'gluster'
+depends 'gluster', '~> 0.1.2'
 depends 'rightscale_tag', '~> 1.1.0'
-depends 'rsc_remote_recipe'
+depends 'rsc_remote_recipe', '~> 10.0.0'
 depends 'rs-storage', '~> 1.1.0'
 depends 'rightscale_backup', '~> 1.2.0'
 
@@ -22,9 +22,15 @@ recipe 'rsc_gluster::volume', 'calls rs-storage::volume on all servers'
 recipe 'rsc_gluster::setup-replica', 'creates replica set'
 recipe 'rsc_gluster::client', 'sets up gluster client from tags'
 recipe 'rsc_gluster::fix-restored-party-attr', 'clears restored attributes'
+recipe 'rsc_gluster::decommission', 'cleans up server'
 
 attribute 'rsc_gluster/brick/path',
   :display_name => 'Gluster Brick Path',
   :description => 'Gluster Brick Path',
   :default => '/mnt/ephemeral',
   :required => 'recommended'
+
+attribute 'rsc_gluster/unique',
+  :display_name => 'Gluster Unique Key',
+  :description => 'creates a unique tag per deployment',
+  :required => 'required'
