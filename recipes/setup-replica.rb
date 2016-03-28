@@ -10,7 +10,7 @@ include_recipe 'machine_tag::default'
 
 Chef::Log.info 'Beginning gluster search'
 glusterfs_peers = []
-tags_results = tag_search(node, ["gluster:server=true","gluster:unique=#{node['rsc_gluster']['unique']}"])
+tags_results = tag_search(node, ["gluster:server=true","gluster:unique=#{node['rsc_gluster']['unique']}"], {match_all: true})
 Chef::Log.info 'tags:' + tags_results.inspect
 
 tags_results.each do |itemlist|
