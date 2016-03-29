@@ -4,7 +4,7 @@ site :opscode
 metadata
 
 cookbook 'gluster', git: 'git://github.com/RightScale-Services-Cookbooks/gluster.git', branch: 'rl10'
-cookbook 'rsc_remote_recipe', git: 'git://github.com/RightScale-Services-Cookbooks/rsc_remote_recipe.git'
+cookbook 'rsc_remote_recipe', git: 'git://github.com/RightScale-Services-Cookbooks/rsc_remote_recipe.git', branch: 'match_all'
 cookbook 'rs-storage', git: 'git://github.com/rightscale-cookbooks/rs-storage.git'
 cookbook 'rightscale_volume', git: 'git://github.com/rightscale-cookbooks/rightscale_volume.git'
 cookbook 'rightscale_backup', git: 'git://github.com/rightscale-cookbooks/rightscale_backup.git'

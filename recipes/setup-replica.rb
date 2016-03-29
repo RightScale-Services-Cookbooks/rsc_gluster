@@ -30,10 +30,11 @@ node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
 include_recipe 'gluster::setup-replica'
 
 remote_recipe "Gluster client - chef" do
-  tags "gluster:server=true"
+  tags [ "gluster:server=true","gluster:unique=#{node['rsc_gluster']['unique']}" ]
   attributes( {
   'GLUSTER_MOUNT_POINT' => 'text:/mnt/gluster',
   'GLUSTER_PEERS' => "text:#{glusterfs_peers}"
 } )
+  match_all true
   action :run
 end
