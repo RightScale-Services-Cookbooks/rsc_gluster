@@ -25,7 +25,7 @@ node.override['gluster']['peers'] = glusterfs_peers
 
 Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
-node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
+node.set['gluster']['brick']['path'] = ::File.join(node['rsc_gluster']['brick']['path'],'gluster')
 
 include_recipe 'gluster::setup-replica'
 
@@ -33,7 +33,8 @@ remote_recipe "Gluster client - chef" do
   tags [ "gluster:server=true","gluster:unique=#{node['rsc_gluster']['unique']}" ]
   attributes( {
   'GLUSTER_MOUNT_POINT' => 'text:/mnt/gluster',
-  'GLUSTER_PEERS' => "text:#{glusterfs_peers}"
+  'GLUSTER_PEERS' => "text:#{glusterfs_peers}",
+  'GLUSTER_BRICK_PATH' => "text:#{node['rsc_gluster']['brick']['path']}"
 } )
   match_all true
   action :run
