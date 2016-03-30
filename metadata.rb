@@ -21,7 +21,7 @@ recipe 'rsc_gluster::server-peer-probe', 'gets peers from tag service'
 recipe 'rsc_gluster::volume', 'calls rs-storage::volume on all servers'
 recipe 'rsc_gluster::setup-replica', 'creates replica set'
 recipe 'rsc_gluster::client', 'sets up gluster client from tags'
-recipe 'rsc_gluster::fix-restored-party-attr', 'clears restored attributes'
+recipe 'rsc_gluster::fix-restored-volume-attr', 'clears restored attributes'
 recipe 'rsc_gluster::decommission', 'cleans up server'
 
 attribute 'rsc_gluster/brick/path',
