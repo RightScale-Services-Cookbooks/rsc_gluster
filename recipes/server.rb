@@ -9,3 +9,7 @@ include_recipe 'rightscale_tag::default'
 machine_tag 'gluster:server=true' do
   action :create
 end
+
+machine_tag "gluster:unique=#{node['rsc_gluster']['unique']}" do
+  action :create
+end

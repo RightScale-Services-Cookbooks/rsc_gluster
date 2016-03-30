@@ -25,6 +25,6 @@ node.override['gluster']['peers'] = glusterfs_peers
 
 Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
-node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
+node.set['gluster']['brick']['path'] = ::File.join(node['rsc_gluster']['brick']['path'], 'gluster')
 
 include_recipe 'gluster::client'

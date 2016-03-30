@@ -10,7 +10,7 @@ include_recipe 'machine_tag::default'
 
 Chef::Log.info 'Beginning gluster search'
 glusterfs_peers = []
-tags_results = tag_search(node, 'gluster:server=true')
+tags_results = tag_search(node, ["gluster:server=true","gluster:unique=#{node['rsc_gluster']['unique']}"], {match_all: true})
 Chef::Log.info 'tags:' + tags_results.inspect
 
 tags_results.each do |itemlist|
@@ -25,16 +25,17 @@ node.override['gluster']['peers'] = glusterfs_peers
 
 Chef::Log.info "Gluster Peers #{node['gluster']['peers']}"
 
-node.set['gluster']['brick']['path'] = node['rsc_gluster']['brick']['path']
+node.set['gluster']['brick']['path'] = ::File.join(node['rsc_gluster']['brick']['path'],'gluster')
 
 include_recipe 'gluster::setup-replica'
 
-rsc_remote_recipe "attach local client" do
-  recipe "rsc_gluster::client"
-  recipient_tags "gluster:server=true"
+remote_recipe "Gluster client - chef" do
+  tags [ "gluster:server=true","gluster:unique=#{node['rsc_gluster']['unique']}" ]
   attributes( {
-  'gluster/client/mount/point' => '/mnt/gluster',
-  'gluster/peers' => glusterfs_peers
+  'GLUSTER_MOUNT_POINT' => 'text:/mnt/gluster',
+  'GLUSTER_PEERS' => "text:#{glusterfs_peers}",
+  'GLUSTER_BRICK_PATH' => "text:#{node['rsc_gluster']['brick']['path']}"
 } )
+  match_all true
   action :run
 end
