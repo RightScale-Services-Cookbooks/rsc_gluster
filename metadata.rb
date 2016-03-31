@@ -7,11 +7,11 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 
 depends 'marker', '~> 1.0.1'
-depends 'machine_tag', '~> 1.1.0'
+depends 'machine_tag', '~> 1.1.1'
 depends 'ephemeral_lvm', '~> 1.0.12'
 depends 'gluster', '~> 0.1.2'
 depends 'rightscale_tag', '~> 1.1.0'
-depends 'rsc_remote_recipe', '~> 10.0.0'
+depends 'rsc_remote_recipe', '~> 10.0.1'
 depends 'rs-storage', '~> 1.1.0'
 depends 'rightscale_backup', '~> 1.2.0'
 
