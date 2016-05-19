@@ -23,6 +23,7 @@ recipe 'rsc_gluster::setup-replica', 'creates replica set'
 recipe 'rsc_gluster::client', 'sets up gluster client from tags'
 recipe 'rsc_gluster::fix-restored-volume-attr', 'clears restored attributes'
 recipe 'rsc_gluster::decommission', 'cleans up server'
+recipe 'rsc_gluster::collectd', 'sets up collectd monitoring'
 
 attribute 'rsc_gluster/brick/path',
   :display_name => 'Gluster Brick Path',
