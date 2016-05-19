@@ -2,8 +2,7 @@ require_relative 'spec_helper'
 
 describe 'rsc_gluster::default' do
   let(:chef_run) do
-    ChefSpec::Runner.new do |node|
-    end.converge(described_recipe)
+    ChefSpec::Runner.new.converge(described_recipe)
   end
 
   it 'includes gluster default' do
