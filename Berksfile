@@ -2,7 +2,9 @@
 site :opscode
 
 metadata
-
+cookbook 'windows', '~> 1.41.0'
+cookbook '7-zip', '~> 1.0.2'
+cookbook 'build-essential', '= 2.4.0'
 cookbook 'gluster', git: 'git://github.com/RightScale-Services-Cookbooks/gluster.git', branch: 'rl10'
 cookbook 'rsc_remote_recipe', git: 'git://github.com/RightScale-Services-Cookbooks/rsc_remote_recipe.git', branch: 'v10.0.1'
 cookbook 'rs-storage', git: 'git://github.com/rightscale-cookbooks/rs-storage.git', branch: 'v1.1.0'
